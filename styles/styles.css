@@ -13,6 +13,7 @@
   --secondary-font-size: 16px;
   --accent-line-height: 1.14;
   --accent-svg-fill: AFB1B8;
+  --cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 html {
   box-sizing: border-box;
@@ -113,6 +114,7 @@ body {
   margin-right: 50px;
   padding-top: 32px;
   padding-bottom: 32px;
+  position: relative;
 }
 .menu-link-indent {
   font-weight: var(--second-font-weight);
@@ -127,6 +129,22 @@ body {
 .menu-link:focus,
 .current {
   color: var(--accent-color);
+}
+.current::after {
+  content: "";
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+  transition: opacity 500ms var(--cubic);
+}
+.current:hover::after {
+  opacity: 1;
 }
 .contact-mail,
 .contact-phone {
@@ -599,6 +617,7 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
   visibility: visible;
+  transition: opacity 500ms var(--cubic);
 }
 .backdrop.is-hidden {
   visibility: hidden;
@@ -616,47 +635,43 @@ body {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
 }
 .modal-btn {
-  background-color: #ffffff;
   display: block;
-  cursor: pointer;
+  background-color: #ffffff;
+  border: none;
   fill: #000000;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  margin-top: 8px;
-  margin-right: 8px;
+  margin: 8px 8px auto auto;
+  cursor: pointer;
 }
 /* .filter-img {
   position: relative;;
 } */
 
 .portfolio-link {
-
   padding: 63px 24px;
   font-size: 18px;
   line-height: 1.56;
   color: #ffffff;
-  }
+}
 
-  .product-thumb {
-    position: relative;
-    overflow: hidden;
-  }
-  .product-before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: translateY(100%);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    background-color: rgba(33, 150, 243, 0.9);
-  }
-  .filter-img:hover .product-before {
-    transform: translateY(0%);
-  }
+.product-thumb {
+  position: relative;
+  overflow: hidden;
+}
+.product-before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(101%);
+  transition: transform 250ms var(--cubic);
+  background-color: rgba(33, 150, 243, 0.9);
+}
+.filter-img:hover .product-before {
+  transform: translateY(0%);
+}
