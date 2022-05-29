@@ -8,7 +8,6 @@
   --accent-font-weight: 700;
   --second-font-weight: 500;
   --accent-font-color: #757575;
-  --second-font-color: #ffffff;
   --accent-color-white: white;
   --accent-font-size: 14px;
   --secondary-font-size: 16px;
@@ -192,7 +191,7 @@ body {
   line-height: 1.36;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--second-font-color);
+  color: var(--accent-color-white);
   width: 696px;
 }
 .order-btn {
@@ -201,7 +200,7 @@ body {
   font-weight: var(--accent-font-weight);
   line-height: 1.87;
   letter-spacing: 0.06em;
-  color: var(--second-font-color);
+  color: var(--accent-color-white);
   background-color: var(--accent-color);
   border-radius: 4px;
   cursor: pointer;
@@ -261,10 +260,28 @@ body {
 }
 .employment-link {
   position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--accent-font);
+  font-style: normal;
+  font-weight: var(--accent-font-weight);
+  font-size: var(--accent-font-size);
+  line-height: var(--accent-line-height);
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--accent-color-white);
+  width: 100%;
+  height: 70px;
+  background-color: rgba(47, 48, 58, 0.8);
 }
-.employment-thumb {
+.employment-img,
+.employment-img-last {
   position: relative;
 }
+
 /* =============/EMPLOYEES/================ */
 .employees {
   background-color: var(--second-bacground-color);
@@ -425,7 +442,7 @@ body {
 .portfolio-btn:focus,
 .portfolio-btn:hover {
   background-color: var(--accent-color);
-  color: var(--second-font-color);
+  color: var(--accent-color-white);
 }
 /* ===========/PORTFOLIO-MENU/============== */
 .filter-item {
@@ -488,7 +505,7 @@ body {
 .contact-adress {
   font-style: normal;
   line-height: 1.71;
-  color: var(--second-font-color);
+  color: var(--accent-color-white);
 }
 .footer-box {
   margin-top: 20px;
@@ -571,4 +588,99 @@ body {
 .footer-block {
   display: flex;
   align-items: baseline;
+}
+/* ============/MODAL-WINDOW/=============== */
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  visibility: visible;
+}
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 528px;
+  min-height: 581px;
+  background-color: var(--accent-color-white);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.modal-btn {
+  background-color: #ffffff;
+  display: block;
+  cursor: pointer;
+  fill: #000000;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 8px;
+  margin-right: 8px;
+}
+/* .filter-img {
+  position: relative;;
+} */
+
+.portfolio-link {
+  position: absolute;
+  opacity: 1;
+  background-color: rgba(33, 150, 243, 0.9);
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+padding-top: 63px;
+padding-bottom: 63px;
+padding-right: 24px;
+padding-left: 24px; 
+  transform: translateY(0%)}
+ 
+
+
+  /* transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+} */
+/* .portfolio-link:hover {
+  position: absolute;
+opacity: 1;
+  transform: translateY(-100%); */
+
+/* } */
+/* .filter-img:hover .portfolio-link {
+  transform: translateY(-100%);
+  opacity: 1;
+  
+} */
+.product-thumb {
+position: relative;
+}
+/* .cards-hover:hover {
+    display: inline-block;
+  content: "";
+  transform: translateY(-100%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+} */
+.filter-img:hover .product-before {
+opacity: 1;
+  transform: translateY(-100%);
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
